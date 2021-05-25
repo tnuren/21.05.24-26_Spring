@@ -22,12 +22,15 @@
 <body>
 	<H2>memberlist.jsp</H2>
 	
+	로그인아이디 : ${sessionScope.loginMember}<br>
+	
+	
 <!--  	<c:forEach var="test" items="${dbList}">
 		${test} <br>
 	</c:forEach>
 			-->
 			
-	<div>
+	
 		<table>
 			<tr style=color:red;>
 				<td>아이디</td>
@@ -35,6 +38,7 @@
 				<td>이름</td>
 				<td>이메일</td>
 				<th>상세조회</th>
+				<th>삭제</th>
 			</tr>
 		<!-- addobject(service) => items -->
 			<c:forEach var="test" items="${dbList}">			
@@ -47,10 +51,19 @@
 				<td><a href="memberview?mid=${test.mid}">조회</a>
 				<!-- http://localhost:8081/member/memberview?mid=a
 								memberview 라는 주소를 요청하면서 mid 파라미터에 a를 담아서 간다. -->
+				<td><button onclick="deletefn('${test.mid}')">삭제</button>			
 			</tr>	
 			</c:forEach>
 		</table>
-	</div>
+		<script>
+		// deletefn(id) = ${test.mid}  같은거다
+			function deletefn(id){
+				console.log('삭제할아이디' + id);
+				location.href="memberdelete?mid="+id;
+			}
+		</script>	
+	
+	
 	<a href="/member">돌아가기</a>
 			
 </body>

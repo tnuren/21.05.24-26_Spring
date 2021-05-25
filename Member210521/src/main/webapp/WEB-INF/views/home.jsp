@@ -14,7 +14,9 @@
 	
 	<!-- 아래 링크는 DB에서 정보를 가져와서 memberlist.jsp에 출력하기 위한 링크 -->
 	<a href="memberlist">목록출력</a><br><br>
-
+	
+	
+	로그인아이디 : ${sessionScope.loginMember}<br>
 
 
 </body>

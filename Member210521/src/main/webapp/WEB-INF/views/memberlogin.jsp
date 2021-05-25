@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	아이디 : <input type="text" ><br>
-	비밀번호 : <input type="text"><br>
-	<button>로그인</button>
+	<h2>memberlogin.jsp</h2>
+	<form action ="login" method="post">
+		아이디 : <input type="text" name="mid"><br>
+		비밀번호 : <input type="text" name="mpassword"><br>
+		<input type="submit" value="로그인">
+	</form>
 </body>
 </html>

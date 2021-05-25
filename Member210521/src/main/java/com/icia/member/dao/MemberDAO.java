@@ -32,4 +32,25 @@ public class MemberDAO {
 		return sql.selectOne("mb.memberview" , mid);
 	}
 
+
+	public String memberLogin(memberDTO member) {		
+		return sql.selectOne("mb.memberlogin" , member );
+	}
+
+
+	public memberDTO update(String loginId) {		
+		return sql.selectOne("mb.memberupdate" , loginId);
+	}
+
+
+	public int updateProcess(memberDTO member) {		
+		return sql.update("mb.updateprocess", member);
+	}
+
+
+	public void memberDelete(String mid) {
+		sql.delete("mb.memberdelete" , mid);
+		
+	}
+
 }
