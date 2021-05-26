@@ -10,6 +10,7 @@
 </head>
 <body>
 	<H2>memberview.jsp</H2>
+	<!-- EL (Expression Language) 태그 ($표시로 쓰는거)  jsp에서만 쓸 수 있다. -->
 	아이디 : ${result.mid}<br>
 	비밀번호 : ${result.mpassword}<br>
 	이름 : ${result.mname}<br>

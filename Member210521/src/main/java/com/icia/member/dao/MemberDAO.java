@@ -53,4 +53,9 @@ public class MemberDAO {
 		
 	}
 
+
+	public String idCheck(String mid) {		
+		return sql.selectOne("mb.idcheck" , mid);
+	}
+
 }

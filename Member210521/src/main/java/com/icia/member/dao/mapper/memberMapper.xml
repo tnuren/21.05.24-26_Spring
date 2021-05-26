@@ -32,5 +32,14 @@
 		DELETE FROM MEMBER210525 WHERE MID=#{mid}
 	</delete>
 	
+	<select id="idcheck" parameterType="String" resultType="String">
+		SELECT MID FROM MEMBER210525 WHERE MID=#{mid}
+	</select>
+	
+	
+	
+	
+	
+	
 	
  </mapper>

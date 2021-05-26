@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.member.dto.memberDTO;
@@ -92,6 +93,31 @@ public class MemberController {
 	public ModelAndView memberDelete(@RequestParam("mid")String mid) {
 		mav = ms.memberDelete(mid);
 		return mav;
+	}
+	
+	// 아이디 중복확인 메소드 
+	// value 값과 ajax url 값과 같아야한다
+	@RequestMapping (value="/idcheck")
+	// ajax data 값과 RequestParam 이름 같아야한다.
+	public @ResponseBody String idCheck(@RequestParam("mid") String mid) {
+		System.out.println("idCheck 메소드 호출됨");
+		System.out.println("입력 id값 " + mid);
+		String result = ms.idCheck(mid);
+		// return 값이 success function 으로 가야한다. => ResponseBody 사용
+		return result;
+	}
+	
+	// ajax로 상세조회
+	// value 값 => ajax url 값 (list)
+	@RequestMapping(value="/memberviewajax")
+	//Param 값 => data 'mid'
+	public @ResponseBody memberDTO memberViewAjax(@RequestParam("mid") String mid) {
+		System.out.println("memberViewAjax 메소드 호출됨");
+		System.out.println("전달 id값 " + mid);
+		memberDTO member = ms.memberViewAjax(mid);
+		System.out.println(member);
+		// member => success 안에 function(result)로 담기는거 
+		return member;
 	}
 	
 	
